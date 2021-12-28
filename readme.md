@@ -9,7 +9,9 @@ embed(embedded
     AS_BINARY
         ../data/container_diffuse.png
 )
+
 add_executable(example ${other_src} ${embedded})
+target_include_directories(example PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 target_link_library(example PRIVATE embed)
 ```
 

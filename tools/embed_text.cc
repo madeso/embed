@@ -28,6 +28,9 @@ bool write_file(const std::string& input_file, std::string_view symbol)
             
             switch(c)
             {
+            case '\\':
+                std::cout << "\\\\";
+                break;
             case '"':
                 std::cout << "\\\"";
                 break;

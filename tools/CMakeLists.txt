@@ -59,6 +59,7 @@ function(embed_internal_helper)
     set(input_variable ${input_name})
     string(TOUPPER "${input_variable}" input_variable)
     string(REPLACE "." "_" input_variable "${input_variable}")
+    string(REPLACE "-" "_" input_variable "${input_variable}")
 
     # return values => set in parent scope
     set(input_name ${input_name} PARENT_SCOPE)

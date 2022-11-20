@@ -1,5 +1,17 @@
 cmake_minimum_required(VERSION 3.15)
-set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
+
+if(NOT DEFINED EMBED_MASTER_PROJECT)
+    set(EMBED_MASTER_PROJECT OFF)
+    if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+        set(EMBED_MASTER_PROJECT ON)
+    endif()
+endif()
+message(STATUS "Embed master: ${EMBED_MASTER_PROJECT}")
+
+if(EMBED_MASTER_PROJECT)
+    set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
+endif()
+
 # project(embed C CXX)
 # set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
 

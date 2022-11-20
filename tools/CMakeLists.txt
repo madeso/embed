@@ -33,6 +33,10 @@ target_link_libraries(embed_binary
     PRIVATE
         embed_project_options
 )
+if(NOT EMBED_MASTER_PROJECT)
+    set_target_properties(embed_binary PROPERTIES FOLDER "External/Embed")
+endif()
+
 
 
 add_executable(embed_text embed_text.cc)
@@ -41,6 +45,9 @@ target_link_libraries(embed_text
         embed_project_options
         embed_project_warnings
 )
+if(NOT EMBED_MASTER_PROJECT)
+    set_target_properties(embed_text PROPERTIES FOLDER "External/Embed")
+endif()
 
 # util function to override name
 function(embed_name file name)

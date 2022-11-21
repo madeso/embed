@@ -9,3 +9,5 @@ target_include_directories(embed
 if(NOT EMBED_MASTER_PROJECT)
     set_target_properties(embed PROPERTIES FOLDER "External/Embed")
 endif()
+add_library(embed::embed ALIAS embed)
+
